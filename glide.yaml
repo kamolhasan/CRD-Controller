@@ -1,0 +1,9 @@
+package: github.com/kamolhasan/CRD-Controller
+import:
+- package: k8s.io/apimachinery
+  subpackages:
+  - pkg/apis/meta/v1
+  - pkg/runtime
+  - pkg/runtime/schema
+- package: k8s.io/code-generator
+- package: k8s.io/gengo
