@@ -113,9 +113,9 @@ func (c *Controller) ProcessNextItem() bool {
 		defer c.workQueue.Done(obj)
 		var key string
 		var ok bool
-		if key, ok = obj.(string); ok {
+		if key, ok = obj.(string); !ok {
 			c.workQueue.Forget(obj)
-			runtime.HandleError(fmt.Errorf("expected string in workqueue b ut got %#v", obj))
+			runtime.HandleError(fmt.Errorf("expected string in workqueue but got %#v", obj))
 			return nil
 
 		}

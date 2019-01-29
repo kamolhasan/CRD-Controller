@@ -57,8 +57,8 @@ func (in *FooList) DeepCopyInto(out *FooList) {
 	*out = *in
 	out.TypeMeta = in.TypeMeta
 	out.ListMeta = in.ListMeta
-	if in.Item != nil {
-		in, out := &in.Item, &out.Item
+	if in.Items != nil {
+		in, out := &in.Items, &out.Items
 		*out = make([]Foo, len(*in))
 		for i := range *in {
 			(*in)[i].DeepCopyInto(&(*out)[i])

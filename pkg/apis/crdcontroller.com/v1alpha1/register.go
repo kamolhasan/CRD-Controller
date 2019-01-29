@@ -20,6 +20,11 @@ func Resource (resource string) schema.GroupResource {
 	return SchemeGroupVersion.WithResource(resource).GroupResource()
 }
 
+var (
+	SchemeBuilder = runtime.NewSchemeBuilder(addKnownTypes)
+	AddToScheme	=	SchemeBuilder.AddToScheme
+)
+
 // Adds the list of known types to Scheme
 func addKnownTypes(scheme *runtime.Scheme)  error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
@@ -32,7 +37,3 @@ func addKnownTypes(scheme *runtime.Scheme)  error {
 }
 
 
-var (
-	SchemeBuilder = runtime.NewSchemeBuilder(addKnownTypes)
-	AddToScheme	=	SchemeBuilder.AddToScheme
-)

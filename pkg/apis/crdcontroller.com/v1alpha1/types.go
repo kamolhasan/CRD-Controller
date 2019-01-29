@@ -33,6 +33,6 @@ type FooStatus struct {
 type FooList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata"`
-	Item []Foo `json:"items"`
+	Items []Foo `json:"items"`
 	
 }
